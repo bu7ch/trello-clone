@@ -80,6 +80,7 @@ const appData: AppState = {
 
 interface AppStateContextProps {
   state: AppState
+  dispatch: AppState
 }
 interface Task {
   id: string,

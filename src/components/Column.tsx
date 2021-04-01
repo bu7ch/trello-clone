@@ -11,7 +11,7 @@ interface ColumnProps {
   index: number
 }
 export const Column = ( {text, index}: ColumnProps) =>  {
-  const {state} = useAppState()
+  const {state, dispatch} = useAppState()
     return (
       <ColumnContainer>
        <ColumnTitle> {text} </ColumnTitle>
@@ -19,7 +19,7 @@ export const Column = ( {text, index}: ColumnProps) =>  {
          <Card text={task.text} key={task.id} />
        ))}
        <AddNewItem toggleButtonText="+ Ajouter une nouvelle liste"
-       onAdd={console.log}
+       onAdd={dispatch({type:"ADD_TASK", payload:{ text, taskId: id}} )}
        dark
        />
       </ColumnContainer>

@@ -24,7 +24,7 @@ interface Action {
 }
 
  const App = () => {
-   const { state } = useAppState()
+   const { state, dispatch } = useAppState()
   return (
     <AppContainer>
       { state.lists.map((list, i) => (
@@ -32,7 +32,7 @@ interface Action {
       ))}
       <AddNewItem
       toggleButtonText="+ Ajouter une nouvelle liste"
-      onAdd={console.log}
+      onAdd={ dispatch({type: "ADD_LIST", payload:text})}
       />
     </AppContainer>
   )
