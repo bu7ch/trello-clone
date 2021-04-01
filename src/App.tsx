@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import { AddNewItem } from './components/AddNewItem';
+import { Card } from './components/Card';
+import { Column } from './components/Column';
+import { AppContainer } from './styles';
+
+
+ const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppContainer>
+      <Column text="To Do">
+        <Card text="Faire un composant"/>
+      </Column>
+      <Column text="In Progress">
+        <Card text="Learn Typescript"/>
+      </Column>
+      <Column text="Done">
+        <Card text="Almost finish my tasks"/>
+      </Column>
+      <AddNewItem toggleButtonText="+ Ajouter une liste" onAdd={console.log} />
+    </AppContainer>
+  )
 }
 
-export default App;
+export default App
+
